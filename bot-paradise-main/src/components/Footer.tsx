@@ -12,7 +12,7 @@ export const Footer = () => {
                 <Bot className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="font-display font-bold text-lg">
-                Cipher<span className="text-gradient">Bots</span>
+                Qu<span className="text-gradient">ro</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-md">
@@ -41,8 +41,8 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border/40 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} CipherBots. All rights reserved.
+            <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Quro. All rights reserved.
           </p>
           <div className="flex items-center gap-3 text-muted-foreground">
             <a href="#" aria-label="Twitter" className="hover:text-primary transition-colors">

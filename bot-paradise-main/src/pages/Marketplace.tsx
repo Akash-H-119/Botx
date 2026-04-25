@@ -35,7 +35,7 @@ const Marketplace = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = "Marketplace — CipherBots";
+    document.title = "Marketplace — Quro";
   }, []);
 
   useEffect(() => {

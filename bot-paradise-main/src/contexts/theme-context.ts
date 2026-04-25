@@ -8,6 +8,6 @@ export interface ThemeContextType {
   setTheme: (t: Theme) => void;
 }
 
-export const THEME_STORAGE_KEY = "cipherbots-theme";
+export const THEME_STORAGE_KEY = "quro-theme";
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);

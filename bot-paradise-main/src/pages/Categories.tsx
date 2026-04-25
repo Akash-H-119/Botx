@@ -13,7 +13,7 @@ const Categories = () => {
   const [cats, setCats] = useState<Category[]>([]);
 
   useEffect(() => {
-    document.title = "Categories — CipherBots";
+    document.title = "Categories — Quro";
     supabase.from("categories").select("*").order("name").then(({ data }) => setCats((data ?? []) as Category[]));
   }, []);
 

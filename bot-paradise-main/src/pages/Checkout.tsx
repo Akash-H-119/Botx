@@ -62,7 +62,7 @@ const Checkout = () => {
   }, [orderId, user]);
 
   useEffect(() => {
-    document.title = "Checkout - CipherBots";
+    document.title = "Checkout - Quro";
     load();
   }, [load]);
 

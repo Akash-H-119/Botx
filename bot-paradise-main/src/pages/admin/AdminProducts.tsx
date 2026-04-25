@@ -78,7 +78,7 @@ const AdminProducts = () => {
   };
 
   useEffect(() => {
-    document.title = "Admin - Bots - CipherBots";
+    document.title = "Admin - Bots - Quro";
     load();
     supabase.from("categories").select("id,name").order("name").then(({ data }) => setCategories((data ?? []) as Category[]));
   }, []);

@@ -53,7 +53,7 @@ const SignUp = () => {
             <Bot className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="font-display font-bold text-lg">
-            Cipher<span className="text-gradient">Bots</span>
+            Qu<span className="text-gradient">ro</span>
           </span>
         </Link>
 

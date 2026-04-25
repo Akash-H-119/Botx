@@ -30,7 +30,7 @@ const Purchases = () => {
   const [downloading, setDownloading] = useState<string | null>(null);
 
   useEffect(() => {
-    document.title = "My Bots - CipherBots";
+    document.title = "My Bots - Quro";
     if (!user) return;
     supabase
       .from("my_purchases")

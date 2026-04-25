@@ -27,7 +27,7 @@ const AdminUsers = () => {
   };
 
   useEffect(() => {
-    document.title = "Admin · Users — CipherBots";
+    document.title = "Admin · Users — Quro";
     load();
   }, []);
 

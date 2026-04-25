@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [recent, setRecent] = useState<Array<{ id: string; bot_id: string; name: string; cover_image_url: string | null; slug: string }>>([]);
 
   useEffect(() => {
-    document.title = "Dashboard — CipherBots";
+    document.title = "Dashboard — Quro";
     if (!user) return;
 
     Promise.all([

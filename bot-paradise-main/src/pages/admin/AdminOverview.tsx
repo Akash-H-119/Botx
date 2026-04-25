@@ -12,7 +12,7 @@ const AdminOverview = () => {
   const [stats, setStats] = useState({ bots: 0, orders: 0, users: 0, revenue: 0 });
 
   useEffect(() => {
-    document.title = "Admin — CipherBots";
+    document.title = "Admin — Quro";
     Promise.all([
       supabase.from("bots").select("id", { count: "exact", head: true }),
       supabase.from("orders").select("total_usd,status"),

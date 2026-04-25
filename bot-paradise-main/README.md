@@ -1,4 +1,4 @@
-# CipherBots
+# Quro
 
 Crypto-native trading bot marketplace built with React, Supabase Auth, Supabase DB, Storage, and Supabase Edge Functions.
 

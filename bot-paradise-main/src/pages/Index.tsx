@@ -25,7 +25,7 @@ const Index = () => {
   const [featured, setFeatured] = useState<Product[]>([]);
 
   useEffect(() => {
-    document.title = "CipherBots — Premium Crypto-Native Trading Bot Marketplace";
+    document.title = "Quro — Premium Crypto-Native Trading Bot Marketplace";
     const desc = "Discover, buy and deploy production-grade algorithmic trading bots. Pay in crypto. Instant access. Built by quant engineers.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -128,7 +128,7 @@ const Index = () => {
             Built for serious traders
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Every bot on CipherBots is reviewed, backtested, and ships with full source plus deployment docs.
+          Every bot on Quro is reviewed, backtested, and ships with full source plus deployment docs.
           </p>
         </div>
 
@@ -199,7 +199,7 @@ const Index = () => {
               Ready to deploy?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-              Join thousands of traders running CipherBots strategies across every major exchange.
+              Join thousands of traders running Quro strategies across every major exchange.
             </p>
             <Button variant="hero" size="xl" asChild>
               <Link to="/marketplace">Browse marketplace <ArrowRight className="ml-2 h-5 w-5" /></Link>

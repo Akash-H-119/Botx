@@ -44,7 +44,7 @@ const ProductDetail = () => {
       .then(({ data }) => {
         setProduct(data as Product | null);
         setLoading(false);
-        if (data) document.title = `${data.name} — CipherBots`;
+        if (data) document.title = `${data.name} — Quro`;
       });
   }, [slug]);
 

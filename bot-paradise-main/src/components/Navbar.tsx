@@ -40,7 +40,7 @@ export const Navbar = () => {
               </div>
             </div>
             <span className="font-display font-bold text-lg tracking-tight">
-              Cipher<span className="text-gradient">Bots</span>
+              Qu<span className="text-gradient">ro</span>
             </span>
           </Link>
 

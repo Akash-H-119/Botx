@@ -75,7 +75,7 @@ Deno.serve(async (req) => {
       orderId: order.id,
       totalUsd,
       payCurrency,
-      description: `CipherBots order ${order.order_number ?? order.id}`,
+      description: `Quro order ${order.order_number ?? order.id}`,
     });
 
     const { error: txError } = await service.from("transactions").insert({
