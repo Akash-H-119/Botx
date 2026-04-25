@@ -182,7 +182,7 @@ const ProductDetail = () => {
                     className="w-full"
                     asChild
                   >
-                    <a href="https://wa.me/97314088880" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/9731408880" target="_blank" rel="noopener noreferrer">
                       <Phone className="h-5 w-5" /> Contact on WhatsApp
                     </a>
                   </Button>
