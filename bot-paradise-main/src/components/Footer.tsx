@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bot, Github, Twitter } from "lucide-react";
+import { Bot } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -25,7 +25,6 @@ export const Footer = () => {
             <h4 className="font-display font-semibold text-sm mb-3">Marketplace</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/marketplace" className="hover:text-primary transition-colors">All Bots</Link></li>
-              <li><Link to="/categories" className="hover:text-primary transition-colors">Categories</Link></li>
               <li><Link to="/marketplace?featured=1" className="hover:text-primary transition-colors">Featured</Link></li>
             </ul>
           </div>
@@ -44,14 +43,6 @@ export const Footer = () => {
             <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Quro. All rights reserved.
           </p>
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <a href="#" aria-label="Twitter" className="hover:text-primary transition-colors">
-              <Twitter className="h-4 w-4" />
-            </a>
-            <a href="#" aria-label="GitHub" className="hover:text-primary transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
