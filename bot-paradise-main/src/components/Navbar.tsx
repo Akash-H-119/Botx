@@ -1,5 +1,5 @@
 import { Link, NavLink as RouterNavLink, useNavigate } from "react-router-dom";
-import { DollarSign, User as UserIcon, LayoutDashboard, LogOut, Menu, X } from "lucide-react";
+import { Bot, User as UserIcon, LayoutDashboard, LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/useAuth";
 import {
@@ -17,6 +17,7 @@ export const Navbar = () => {
 
   const links = [
     { to: "/marketplace", label: "Marketplace" },
+    { to: "/categories", label: "Categories" },
     { to: "/about", label: "About" },
   ];
 
@@ -33,7 +34,7 @@ export const Navbar = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary blur-md opacity-60 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-gradient-primary p-2 rounded-lg">
-                <DollarSign className="h-5 w-5 text-primary-foreground" />
+                <Bot className="h-5 w-5 text-primary-foreground" />
               </div>
             </div>
             <span className="font-display font-bold text-lg tracking-tight">
@@ -82,7 +83,7 @@ export const Navbar = () => {
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/dashboard/purchases" className="cursor-pointer">
-                      <DollarSign className="mr-2 h-4 w-4" />
+                      <Bot className="mr-2 h-4 w-4" />
                       My Bots
                     </Link>
                   </DropdownMenuItem>
