@@ -94,29 +94,6 @@ const Index = () => {
                 <Link to="/auth/sign-up">Create free account</Link>
               </Button>
             </div>
-
-            <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-              {[
-                { value: "150+", label: "Strategies" },
-                { value: "$24M+", label: "Volume traded" },
-                { value: "12k+", label: "Active traders" },
-              ].map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 + i * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="font-display text-3xl md:text-4xl font-bold text-gradient">
-                    {s.value}
-                  </div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">
-                    {s.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
