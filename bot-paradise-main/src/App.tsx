@@ -4,7 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { CartProvider } from "@/contexts/CartContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -14,8 +13,6 @@ import Marketplace from "./pages/Marketplace";
 import ProductDetail from "./pages/ProductDetail";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -35,19 +32,16 @@ const App = () => (
         <Sonner position="top-right" />
         <BrowserRouter>
         <AuthProvider>
-          <CartProvider>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/about" element={<About />} />
               <Route path="/product/:slug" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />
 
               <Route path="/auth/sign-in" element={<SignIn />} />
               <Route path="/auth/sign-up" element={<SignUp />} />
 
-              <Route path="/checkout/:orderId" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/dashboard/purchases" element={<ProtectedRoute><Purchases /></ProtectedRoute>} />
 
@@ -59,7 +53,6 @@ const App = () => (
               {/* CATCH-ALL */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </CartProvider>
         </AuthProvider>
       </BrowserRouter>
       </TooltipProvider>

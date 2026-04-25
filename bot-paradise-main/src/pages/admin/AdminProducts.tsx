@@ -194,11 +194,44 @@ const AdminProducts = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this bot? This cannot be undone.")) return;
-    const { error } = await supabase.from("bots").delete().eq("id", id);
-    if (error) toast.error(error.message);
-    else {
-      toast.success("Deleted");
-      load();
+
+    try {
+      // First, get all order_items that reference this bot
+      const { data: orderItems } = await supabase
+        .from("order_items")
+        .select("order_id")
+        .eq("product_id", id);
+
+      if (orderItems && orderItems.length > 0) {
+        const orderIds = [...new Set(orderItems.map(oi => oi.order_id))];
+
+        // Delete all order_items for this bot
+        await supabase.from("order_items").delete().eq("product_id", id);
+
+        // Delete the orders that no longer have any items
+        for (const orderId of orderIds) {
+          const { data: remainingItems } = await supabase
+            .from("order_items")
+            .select("id")
+            .eq("order_id", orderId);
+
+          if (!remainingItems || remainingItems.length === 0) {
+            await supabase.from("orders").delete().eq("id", orderId);
+          }
+        }
+      }
+
+      // Finally, delete the bot
+      const { error } = await supabase.from("bots").delete().eq("id", id);
+
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Bot deleted (orphaned orders cleaned up)");
+        load();
+      }
+    } catch (err) {
+      toast.error("Failed to delete bot: " + (err instanceof Error ? err.message : "Unknown error"));
     }
   };
 

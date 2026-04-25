@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Bot, Check, ShoppingCart, Star, TrendingUp, Zap, ArrowLeft } from "lucide-react";
+import { Bot, Check, Star, TrendingUp, MessageCircle, Phone, ArrowLeft } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
-import { useCart } from "@/contexts/useCart";
-import { toast } from "sonner";
 
 interface Product {
   id: string;
@@ -28,8 +26,6 @@ interface Product {
 
 const ProductDetail = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
-  const { addItem, items } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -78,18 +74,6 @@ const ProductDetail = () => {
   const perf = product.performance && typeof product.performance === "object" && !Array.isArray(product.performance)
     ? (product.performance as Record<string, string | number>)
     : {};
-  const inCart = items.some((i) => i.id === product.id);
-
-  const handleAdd = () => {
-    addItem({
-      id: product.id,
-      name: product.name,
-      price_usd: Number(product.price_usd),
-      cover_image_url: product.cover_image_url,
-      slug: product.slug,
-    });
-    toast.success(`${product.name} added to cart`);
-  };
 
   return (
     <SiteLayout>
@@ -178,23 +162,29 @@ const ProductDetail = () => {
                   <span className="font-display text-5xl font-bold text-gradient">
                     ${Number(product.price_usd).toFixed(0)}
                   </span>
-                  <span className="text-sm text-muted-foreground">USD · pay in crypto</span>
+                  <span className="text-sm text-muted-foreground">USD</span>
                 </div>
 
                 <div className="space-y-3">
-                  {inCart ? (
-                    <Button variant="glass" size="xl" className="w-full" asChild>
-                      <Link to="/cart">
-                        <ShoppingCart className="h-5 w-5" /> View cart
-                      </Link>
-                    </Button>
-                  ) : (
-                    <Button variant="hero" size="xl" className="w-full" onClick={handleAdd}>
-                      <ShoppingCart className="h-5 w-5" /> Add to cart
-                    </Button>
-                  )}
-                  <Button variant="outline" size="xl" className="w-full" onClick={() => { handleAdd(); navigate("/cart"); }}>
-                    <Zap className="h-5 w-5" /> Buy now
+                  <Button
+                    variant="hero"
+                    size="xl"
+                    className="w-full"
+                    asChild
+                  >
+                    <a href="https://t.me/FXQuro" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5" /> Contact on Telegram
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="xl"
+                    className="w-full"
+                    asChild
+                  >
+                    <a href="https://wa.me/97314088880" target="_blank" rel="noopener noreferrer">
+                      <Phone className="h-5 w-5" /> Contact on WhatsApp
+                    </a>
                   </Button>
                 </div>
 

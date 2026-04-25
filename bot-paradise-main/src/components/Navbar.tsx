@@ -1,8 +1,7 @@
 import { Link, NavLink as RouterNavLink, useNavigate } from "react-router-dom";
-import { Bot, ShoppingCart, User as UserIcon, LayoutDashboard, LogOut, Menu, X } from "lucide-react";
+import { Bot, User as UserIcon, LayoutDashboard, LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/useAuth";
-import { useCart } from "@/contexts/useCart";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
   DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
@@ -13,7 +12,6 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   const { user, isAdmin, signOut } = useAuth();
-  const { count } = useCart();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
@@ -64,16 +62,6 @@ export const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" asChild className="relative">
-              <Link to="/cart" aria-label="Cart">
-                <ShoppingCart className="h-5 w-5" />
-                {count > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-gradient-primary text-primary-foreground text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                    {count}
-                  </span>
-                )}
-              </Link>
-            </Button>
 
             {user ? (
               <DropdownMenu>
