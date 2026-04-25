@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bot } from "lucide-react";
+import { DollarSign } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2.5 mb-4">
               <div className="bg-gradient-primary p-2 rounded-lg">
-                <Bot className="h-5 w-5 text-primary-foreground" />
+                <DollarSign className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="font-display font-bold text-lg">
                 Qu<span className="text-gradient">ro</span>
