@@ -55,23 +55,11 @@ const Marketplace = () => {
         <div className="mb-10 max-w-3xl">
           <Badge variant="outline" className="mb-3 border-primary/30 text-primary">Marketplace</Badge>
           <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-3">
-            All trading bots
+            Trading bots
           </h1>
           <p className="text-muted-foreground">
-            Browse our complete catalogue of vetted, production-ready algorithmic trading strategies.
+            Production-ready algorithmic trading strategies.
           </p>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search strategies, exchanges, assets..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-10 h-12 glass border-border/50 focus-visible:ring-primary/50"
-            />
-          </div>
         </div>
 
         {loading ? (
