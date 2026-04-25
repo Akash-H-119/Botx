@@ -11,7 +11,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Marketplace from "./pages/Marketplace";
 import ProductDetail from "./pages/ProductDetail";
-import Categories from "./pages/Categories";
 import About from "./pages/About";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -35,7 +34,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/marketplace" element={<Marketplace />} />
-              <Route path="/categories" element={<Categories />} />
               <Route path="/about" element={<About />} />
               <Route path="/product/:slug" element={<ProductDetail />} />
 

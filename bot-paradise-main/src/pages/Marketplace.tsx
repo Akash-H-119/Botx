@@ -17,21 +17,11 @@ interface Product {
   is_featured: boolean;
   rating: number | null;
   total_sales: number;
-  category_id: string | null;
-}
-
-interface Category {
-  id: string;
-  name: string;
-  slug: string;
 }
 
 const Marketplace = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [search, setSearch] = useState("");
-  const [params] = useSearchParams();
-  const [activeCat, setActiveCat] = useState<string | null>(params.get("category"));
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,27 +29,18 @@ const Marketplace = () => {
   }, []);
 
   useEffect(() => {
-    supabase.from("categories").select("id,name,slug").order("name").then(({ data }) => {
-      setCategories((data ?? []) as Category[]);
-    });
-  }, []);
-
-  useEffect(() => {
     setLoading(true);
-    let q = supabase
+    supabase
       .from("bots")
-      .select("id,name,slug,short_description,price_usd,cover_image_url,is_featured,rating,total_sales,category_id")
+      .select("id,name,slug,short_description,price_usd,cover_image_url,is_featured,rating,total_sales")
       .eq("is_published", true)
       .order("is_featured", { ascending: false })
-      .order("created_at", { ascending: false });
-
-    if (activeCat) q = q.eq("category_id", activeCat);
-
-    q.then(({ data }) => {
-      setProducts((data ?? []) as Product[]);
-      setLoading(false);
-    });
-  }, [activeCat]);
+      .order("created_at", { ascending: false })
+      .then(({ data }) => {
+        setProducts((data ?? []) as Product[]);
+        setLoading(false);
+      });
+  }, []);
 
   const filtered = products.filter(
     (p) =>
@@ -91,28 +72,6 @@ const Marketplace = () => {
               className="pl-10 h-12 glass border-border/50 focus-visible:ring-primary/50"
             />
           </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-10">
-          <button
-            onClick={() => setActiveCat(null)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              !activeCat ? "bg-gradient-primary text-primary-foreground" : "glass hover:border-primary/30"
-            }`}
-          >
-            All
-          </button>
-          {categories.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => setActiveCat(c.id)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                activeCat === c.id ? "bg-gradient-primary text-primary-foreground" : "glass hover:border-primary/30"
-              }`}
-            >
-              {c.name}
-            </button>
-          ))}
         </div>
 
         {loading ? (
