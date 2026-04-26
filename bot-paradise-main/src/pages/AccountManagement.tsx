@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/useAuth";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Badge } from "@/components/ui/badge";
@@ -84,8 +84,7 @@ const AccountManagement = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
-    setSubmitStatus("success");
-    
+  if (loading) return null;
     // Reset form after successful submission
     setFormData({
       brokerName: "",
@@ -104,7 +103,6 @@ const AccountManagement = () => {
   };
 
   if (loading) return null;
-  if (!user) return <Navigate to="/auth/sign-in" replace />;
 
   return (
     <SiteLayout>
