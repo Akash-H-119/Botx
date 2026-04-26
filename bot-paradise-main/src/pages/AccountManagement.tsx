@@ -126,7 +126,7 @@ const AccountManagement = () => {
                 </div>
                 <div>
                   <h2 className="font-display text-2xl md:text-3xl font-bold">
-                    Managed Trading Accounts
+                    Get Free Bots
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Let our expert bots trade for you
