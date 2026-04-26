@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "@/contexts/useAuth";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,6 +36,7 @@ interface FormErrors {
 }
 
 const AccountManagement = () => {
+  const { user, loading } = useAuth();
   const [formData, setFormData] = useState<FormData>({
     brokerName: "",
     accountNumber: "",
@@ -99,6 +102,9 @@ const AccountManagement = () => {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
   };
+
+  if (loading) return null;
+  if (!user) return <Navigate to="/auth/sign-in" replace />;
 
   return (
     <SiteLayout>
