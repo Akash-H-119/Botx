@@ -171,7 +171,7 @@ const AccountManagement = () => {
                     </div>
                     <h4 className="font-semibold mb-2">3. You Keep 70% Profit</h4>
                     <p className="text-sm text-muted-foreground">
-                      You receive 70% of all profits, we take 30% as our commission.
+                      You receive 70% of all profits, we take 30% weekly as our commission.
                     </p>
                   </div>
                 </div>
