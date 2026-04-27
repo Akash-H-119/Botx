@@ -343,59 +343,8 @@ const AccountManagement = () => {
           </Card>
         </div>
 
-        {/* Other Account Sections */}
-        <div className="grid gap-5 md:grid-cols-3">
-          <Card className="glass border-border/60">
-            <CardHeader className="flex flex-row items-center gap-4 space-y-0">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-              </div>
-              <CardTitle className="font-display text-xl">Security</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5">
-              <p className="text-sm text-muted-foreground">
-                Manage password, session, and verification settings for your account.
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
 
-          <Card className="glass border-border/60">
-            <CardHeader className="flex flex-row items-center gap-4 space-y-0">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                <Wallet className="h-5 w-5 text-primary" />
-              </div>
-              <CardTitle className="font-display text-xl">Billing</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5">
-              <p className="text-sm text-muted-foreground">
-                View subscription plans, invoices, and payment history.
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
 
-          <Card className="glass border-border/60">
-            <CardHeader className="flex flex-row items-center gap-4 space-y-0">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                <TrendingUp className="h-5 w-5 text-primary" />
-              </div>
-              <CardTitle className="font-display text-xl">My Bots</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5">
-              <p className="text-sm text-muted-foreground">
-                View and manage your purchased trading bots.
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </SiteLayout>
   );
